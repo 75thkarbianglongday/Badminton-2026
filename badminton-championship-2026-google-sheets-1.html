@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>75th Karbi Anglong Day Open Badminton Championship 2026</title>
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
   .category-card:hover { transform: translateY(-4px); transition: all 0.2s ease; }
@@ -231,17 +232,34 @@
           <h4 class="font-bold text-lg leading-tight">Open Badminton Championship 2026</h4>
           <p class="text-xs mt-1">Registration Card</p>
         </div>
-        <div class="p-5 flex gap-4">
-          <div class="flex-shrink-0">
-            <img id="cardPhoto" src="" alt="Player Photo" class="w-24 h-28 object-cover border rounded bg-gray-100">
+        <div class="p-5">
+          <p class="text-sm mb-3"><span class="text-gray-500">Reg. ID:</span> <strong id="cardId" class="font-mono"></strong></p>
+          <p class="text-sm mb-4"><span class="text-gray-500">Category:</span> <strong id="cardCategory"></strong></p>
+
+          <div class="flex gap-4 mb-4">
+            <div class="flex-shrink-0">
+              <img id="cardPhoto" src="" alt="Player Photo" class="w-24 h-28 object-cover border rounded bg-gray-100">
+            </div>
+            <div class="flex-1 text-sm space-y-1">
+              <p><span class="text-gray-500">Name:</span> <strong id="cardName"></strong></p>
+              <p><span class="text-gray-500">DOB:</span> <span id="cardDob"></span></p>
+              <p><span class="text-gray-500">Mobile:</span> <span id="cardPhone"></span></p>
+              <p><span class="text-gray-500">Gender:</span> <span id="cardGender"></span></p>
+            </div>
           </div>
-          <div class="flex-1 text-sm space-y-1">
-            <p><span class="text-gray-500">Reg. ID:</span> <strong id="cardId" class="font-mono"></strong></p>
-            <p><span class="text-gray-500">Name:</span> <strong id="cardName"></strong></p>
-            <p><span class="text-gray-500">Category:</span> <strong id="cardCategory"></strong></p>
-            <p id="cardPartnerRow" class="hidden"><span class="text-gray-500">Partner:</span> <strong id="cardPartner"></strong></p>
-            <p><span class="text-gray-500">DOB:</span> <span id="cardDob"></span></p>
-            <p><span class="text-gray-500">Mobile:</span> <span id="cardPhone"></span></p>
+
+          <div id="partnerCardSection" class="hidden border-t pt-4 mt-2">
+            <div class="flex gap-4">
+              <div class="flex-shrink-0">
+                <img id="cardPartnerPhoto" src="" alt="Partner Photo" class="w-24 h-28 object-cover border rounded bg-gray-100">
+              </div>
+              <div class="flex-1 text-sm space-y-1">
+                <p><span class="text-gray-500">Partner:</span> <strong id="cardPartner"></strong></p>
+                <p><span class="text-gray-500">DOB:</span> <span id="cardPartnerDob"></span></p>
+                <p><span class="text-gray-500">Mobile:</span> <span id="cardPartnerPhone"></span></p>
+                <p><span class="text-gray-500">Gender:</span> <span id="cardPartnerGender"></span></p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="bg-gray-50 px-5 py-3 text-xs border-t text-center">
@@ -255,6 +273,9 @@
         <button onclick="window.print()" class="bg-green-700 hover:bg-green-800 text-white px-5 py-2 rounded-lg text-sm">
           <i class="fas fa-print mr-1"></i> Print Card
         </button>
+        <button onclick="downloadCard()" class="bg-blue-700 hover:bg-blue-800 text-white px-5 py-2 rounded-lg text-sm">
+          <i class="fas fa-download mr-1"></i> Download Card
+        </button>
         <button onclick="location.reload()" class="text-green-700 underline text-sm">Register another player</button>
       </div>
     </div>
@@ -267,7 +288,6 @@
 </footer>
 
 <script>
-// ⚠️ REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzw21eDLS7JshBUCGSKYqf9hBp1cyIcbTx9U6NcaxwbDSfjiFbMH5U_lZj4L5CFc8KXpg/exec';
 
 function populateDobDropdowns() {
@@ -305,12 +325,12 @@ function populateDobDropdowns() {
 populateDobDropdowns();
 
 function combineDob(prefix) {
-  const day = document.querySelector(`select[name="${prefix}Day"]`)?.value;
-  const month = document.querySelector(`select[name="${prefix}Month"]`)?.value;
-  const year = document.querySelector(`select[name="${prefix}Year"]`)?.value;
-  const hidden = document.querySelector(`input[name="${prefix}"]`);
+  const day = document.querySelector(select[name="${prefix}Day"])?.value;
+  const month = document.querySelector(select[name="${prefix}Month"])?.value;
+  const year = document.querySelector(select[name="${prefix}Year"])?.value;
+  const hidden = document.querySelector(input[name="${prefix}"]);
   if (day && month && year && hidden) {
-    hidden.value = `${year}-${month}-${day}`;
+    hidden.value = \( {year}- \){month}-${day};
   }
 }
 
@@ -339,7 +359,7 @@ document.querySelectorAll('input[type="file"]').forEach(input => {
     if (this.files && this.files.length > 0) {
       const file = this.files[0];
       if (file.size > MAX_FILE_SIZE) {
-        alert(`File is too large (${(file.size / 1024).toFixed(1)} KB). Maximum allowed size is 300 KB.`);
+        alert(File is too large (${(file.size / 1024).toFixed(1)} KB). Maximum allowed size is 300 KB.);
         this.value = '';
       }
     }
@@ -363,10 +383,21 @@ function fileToBase64(file) {
   });
 }
 
+function downloadCard() {
+  const card = document.getElementById('regCard');
+  html2canvas(card, { scale: 2, useCORS: true, backgroundColor: '#ffffff' }).then(canvas => {
+    const link = document.createElement('a');
+    link.download = 'registration-card.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  }).catch(err => {
+    alert('Could not download the card. You can use Print instead.');
+  });
+}
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  // Size check
   const fileInputs = form.querySelectorAll('input[type="file"]');
   for (const input of fileInputs) {
     if (input.files && input.files[0] && input.files[0].size > MAX_FILE_SIZE) {
@@ -423,31 +454,38 @@ form.addEventListener('submit', async (e) => {
 
     const response = await fetch(SCRIPT_URL, {
       method: 'POST',
-      mode: 'no-cors', // Apps Script web apps often need this or proper CORS headers
+      mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
 
-    // With no-cors we can't read the response, but the request is sent.
-    // For better feedback you can switch to cors after testing, or use a simple redirect approach.
-    // Here we assume success if no network error.
-
-    // Show card
     document.getElementById('cardId').textContent = payload.id;
-    document.getElementById('cardName').textContent = payload.name;
     document.getElementById('cardCategory').textContent = payload.category;
+    document.getElementById('cardName').textContent = payload.name;
     document.getElementById('cardDob').textContent = payload.dob;
     document.getElementById('cardPhone').textContent = payload.phone;
-
-    if (payload.partnerName) {
-      document.getElementById('cardPartner').textContent = payload.partnerName;
-      document.getElementById('cardPartnerRow').classList.remove('hidden');
-    }
+    document.getElementById('cardGender').textContent = payload.gender;
 
     if (photoFile && photoFile.size) {
       const reader = new FileReader();
       reader.onload = (ev) => { document.getElementById('cardPhoto').src = ev.target.result; };
       reader.readAsDataURL(photoFile);
+    }
+
+    if (payload.partnerName) {
+      document.getElementById('partnerCardSection').classList.remove('hidden');
+      document.getElementById('cardPartner').textContent = payload.partnerName;
+      document.getElementById('cardPartnerDob').textContent = payload.partnerDob;
+      document.getElementById('cardPartnerPhone').textContent = payload.partnerPhone;
+      document.getElementById('cardPartnerGender').textContent = payload.partnerGender;
+
+      if (partnerPhotoFile && partnerPhotoFile.size) {
+        const reader2 = new FileReader();
+        reader2.onload = (ev) => { document.getElementById('cardPartnerPhoto').src = ev.target.result; };
+        reader2.readAsDataURL(partnerPhotoFile);
+      }
+    } else {
+      document.getElementById('partnerCardSection').classList.add('hidden');
     }
 
     form.classList.add('hidden');
