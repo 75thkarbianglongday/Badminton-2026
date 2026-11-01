@@ -325,12 +325,12 @@ function populateDobDropdowns() {
 populateDobDropdowns();
 
 function combineDob(prefix) {
-  const day = document.querySelector(select[name="${prefix}Day"])?.value;
-  const month = document.querySelector(select[name="${prefix}Month"])?.value;
-  const year = document.querySelector(select[name="${prefix}Year"])?.value;
-  const hidden = document.querySelector(input[name="${prefix}"]);
+  const day = document.querySelector(`select[name="${prefix}Day"]`)?.value;
+  const month = document.querySelector(`select[name="${prefix}Month"]`)?.value;
+  const year = document.querySelector(`select[name="${prefix}Year"]`)?.value;
+  const hidden = document.querySelector(`input[name="${prefix}"]`);
   if (day && month && year && hidden) {
-    hidden.value = \( {year}- \){month}-${day};
+    hidden.value = `${year}-${month}-${day}`;
   }
 }
 
@@ -359,7 +359,7 @@ document.querySelectorAll('input[type="file"]').forEach(input => {
     if (this.files && this.files.length > 0) {
       const file = this.files[0];
       if (file.size > MAX_FILE_SIZE) {
-        alert(File is too large (${(file.size / 1024).toFixed(1)} KB). Maximum allowed size is 300 KB.);
+        alert(`File is too large (${(file.size / 1024).toFixed(1)} KB). Maximum allowed size is 300 KB.`);
         this.value = '';
       }
     }
@@ -452,7 +452,7 @@ form.addEventListener('submit', async (e) => {
       partnerDocumentName: partnerDocData.name
     };
 
-    const response = await fetch(SCRIPT_URL, {
+    await fetch(SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
