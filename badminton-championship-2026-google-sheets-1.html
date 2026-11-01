@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>75th Karbi Anglong Day Open Badminton Championship 2026</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  .category-card:hover { transform: translateY(-4px); transition: all 0.2s ease; }
+  @media print {
+    body * { visibility: hidden; }
+    #regCard, #regCard * { visibility: visible; }
+    #regCard { position: absolute; left: 0; top: 0; width: 100%; max-width: 420px; margin: 0; box-shadow: none; }
+  }
+  #successMsg.hidden { display: none; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+<header class="bg-gradient-to-r from-green-800 to-green-600 text-white shadow-lg">
+  <div class="max-w-6xl mx-auto px-4 py-6">
+    <div class="flex items-center gap-4">
+      <div class="bg-white/20 p-3 rounded-full">
+        <i class="fas fa-shuttlecock text-3xl"></i>
+      </div>
+      <div>
+        <h1 class="text-2xl md:text-3xl font-bold">75th Karbi Anglong Day</h1>
+        <p class="text-lg md:text-xl opacity-90">Open Badminton Championship 2026</p>
+      </div>
+    </div>
+    <p class="mt-3 text-sm md:text-base opacity-90">Organised by Sports & Youth Welfare Department, KAAC<br>in collaboration with Karbi Anglong Sports Association</p>
+  </div>
+</header>
+
+<section class="bg-white border-b">
+  <div class="max-w-6xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-6 text-center">
+    <div class="p-4 rounded-lg bg-green-50">
+      <i class="fas fa-calendar-alt text-green-700 text-2xl mb-2"></i>
+      <p class="font-semibold">Event Dates</p>
+      <p class="text-sm">13, 14 & 15 November 2026</p>
+    </div>
+    <div class="p-4 rounded-lg bg-blue-50">
+      <i class="fas fa-map-marker-alt text-blue-700 text-2xl mb-2"></i>
+      <p class="font-semibold">Venue</p>
+      <p class="text-sm">KASA Indoor Stadium, Diphu</p>
+    </div>
+    <div class="p-4 rounded-lg bg-yellow-50">
+      <i class="fas fa-ticket-alt text-yellow-700 text-2xl mb-2"></i>
+      <p class="font-semibold">Registration</p>
+      <p class="text-sm font-bold text-green-700">FREE</p>
+    </div>
+  </div>
+</section>
+
+<section class="max-w-6xl mx-auto px-4 py-10">
+  <h2 class="text-2xl font-bold mb-6 text-center">Categories</h2>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="category-card bg-white p-5 rounded-xl shadow border border-gray-100">
+      <h3 class="font-bold text-green-800">Under 9, 11, 13 & 15</h3>
+      <p class="text-sm mt-1">Boys & Girls • <strong>Singles only</strong></p>
+    </div>
+    <div class="category-card bg-white p-5 rounded-xl shadow border border-gray-100">
+      <h3 class="font-bold text-green-800">Veteran Men’s</h3>
+      <p class="text-sm mt-1">Doubles</p>
+    </div>
+    <div class="category-card bg-white p-5 rounded-xl shadow border border-gray-100">
+      <h3 class="font-bold text-green-800">Veteran Mixed</h3>
+      <p class="text-sm mt-1">Doubles</p>
+    </div>
+    <div class="category-card bg-white p-5 rounded-xl shadow border border-gray-100">
+      <h3 class="font-bold text-green-800">Open Men’s</h3>
+      <p class="text-sm mt-1">Doubles only</p>
+    </div>
+    <div class="category-card bg-white p-5 rounded-xl shadow border border-gray-100">
+      <h3 class="font-bold text-green-800">Open Women’s</h3>
+      <p class="text-sm mt-1">Doubles only</p>
+    </div>
+    <div class="category-card bg-white p-5 rounded-xl shadow border border-gray-100">
+      <h3 class="font-bold text-green-800">Open Mixed</h3>
+      <p class="text-sm mt-1">Doubles</p>
+    </div>
+  </div>
+  <p class="text-center text-sm text-gray-500 mt-4">Age categories calculated as on 1 January 2026</p>
+</section>
+
+<section id="register" class="max-w-3xl mx-auto px-4 pb-16">
+  <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+    <h2 class="text-2xl font-bold mb-2">Player Registration</h2>
+    <p class="text-sm text-gray-500 mb-6">All fields marked * are required. Upload clear photo and supporting document (Aadhaar / Birth Certificate). Max 300 KB each.</p>
+
+    <form id="regForm" class="space-y-5">
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium mb-1">Full Name *</label>
+          <input type="text" name="name" required class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 outline-none">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Mobile Number *</label>
+          <input type="tel" name="phone" required pattern="[0-9]{10}" class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 outline-none" placeholder="10-digit number">
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium mb-1">Date of Birth *</label>
+          <div class="grid grid-cols-3 gap-2">
+            <select name="dobDay" required class="border rounded-lg px-2 py-2 focus:ring-2 focus:ring-green-500 outline-none"><option value="">Day</option></select>
+            <select name="dobMonth" required class="border rounded-lg px-2 py-2 focus:ring-2 focus:ring-green-500 outline-none"><option value="">Month</option></select>
+            <select name="dobYear" required class="border rounded-lg px-2 py-2 focus:ring-2 focus:ring-green-500 outline-none"><option value="">Year</option></select>
+          </div>
+          <input type="hidden" name="dob">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Gender *</label>
+          <select name="gender" required class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 outline-none">
+            <option value="">Select</option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-1">Category *</label>
+        <select name="category" id="category" required class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 outline-none">
+          <option value="">Select Category</option>
+          <optgroup label="Junior Singles">
+            <option value="U9 Boys">Under 9 Boys (Singles)</option>
+            <option value="U9 Girls">Under 9 Girls (Singles)</option>
+            <option value="U11 Boys">Under 11 Boys (Singles)</option>
+            <option value="U11 Girls">Under 11 Girls (Singles)</option>
+            <option value="U13 Boys">Under 13 Boys (Singles)</option>
+            <option value="U13 Girls">Under 13 Girls (Singles)</option>
+            <option value="U15 Boys">Under 15 Boys (Singles)</option>
+            <option value="U15 Girls">Under 15 Girls (Singles)</option>
+          </optgroup>
+          <optgroup label="Doubles">
+            <option value="Veteran Men">Veteran Men’s Doubles</option>
+            <option value="Veteran Mixed">Veteran Mixed Doubles</option>
+            <option value="Open Men">Open Men’s Doubles</option>
+            <option value="Open Women">Open Women’s Doubles</option>
+            <option value="Open Mixed">Open Mixed Doubles</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <div id="partnerSection" class="hidden space-y-4 border-t pt-5 mt-2">
+        <h3 class="font-semibold text-green-800">Partner Details (Required for Doubles)</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium mb-1">Partner’s Full Name *</label>
+            <input type="text" name="partnerName" class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 outline-none">
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">Partner’s Mobile Number *</label>
+            <input type="tel" name="partnerPhone" pattern="[0-9]{10}" class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 outline-none" placeholder="10-digit number">
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium mb-1">Partner’s Date of Birth *</label>
+            <div class="grid grid-cols-3 gap-2">
+              <select name="partnerDobDay" class="border rounded-lg px-2 py-2 focus:ring-2 focus:ring-green-500 outline-none"><option value="">Day</option></select>
+              <select name="partnerDobMonth" class="border rounded-lg px-2 py-2 focus:ring-2 focus:ring-green-500 outline-none"><option value="">Month</option></select>
+              <select name="partnerDobYear" class="border rounded-lg px-2 py-2 focus:ring-2 focus:ring-green-500 outline-none"><option value="">Year</option></select>
+            </div>
+            <input type="hidden" name="partnerDob">
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">Partner’s Gender *</label>
+            <select name="partnerGender" class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 outline-none">
+              <option value="">Select</option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium mb-1">Partner’s Photo *</label>
+            <input type="file" name="partnerPhoto" accept="image/*" class="w-full text-sm border rounded-lg p-2">
+            <p class="text-xs text-gray-500 mt-1">Max 300 KB</p>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">Partner’s Document *</label>
+            <input type="file" name="partnerDocument" accept=".pdf,.jpg,.jpeg,.png" class="w-full text-sm border rounded-lg p-2">
+            <p class="text-xs text-gray-500 mt-1">Max 300 KB</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium mb-1">Passport Size Photo *</label>
+          <input type="file" name="photo" accept="image/*" required class="w-full text-sm border rounded-lg p-2">
+          <p class="text-xs text-gray-500 mt-1">JPG/PNG, clear face photo • Max 300 KB</p>
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Supporting Document *</label>
+          <input type="file" name="document" accept=".pdf,.jpg,.jpeg,.png" required class="w-full text-sm border rounded-lg p-2">
+          <p class="text-xs text-gray-500 mt-1">Aadhaar / Birth Certificate • Max 300 KB</p>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-1">Village / Town / Address *</label>
+        <input type="text" name="address" required class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 outline-none">
+      </div>
+
+      <div class="flex items-start gap-2">
+        <input type="checkbox" id="declare" required class="mt-1">
+        <label for="declare" class="text-sm">I declare that the information provided is true. I agree to the rules of the tournament. *</label>
+      </div>
+
+      <button type="submit" id="submitBtn" class="w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-3 rounded-lg transition">
+        Submit Registration
+      </button>
+    </form>
+
+    <div id="successMsg" class="hidden mt-8">
+      <div class="text-center mb-6">
+        <i class="fas fa-check-circle text-4xl text-green-600 mb-2"></i>
+        <h3 class="text-xl font-bold text-green-800">Registration Successful!</h3>
+        <p class="text-sm text-gray-600">Your Registration Card has been generated below. Data has been saved to the official sheet.</p>
+      </div>
+
+      <div id="regCard" class="max-w-md mx-auto bg-white border-2 border-green-700 rounded-xl overflow-hidden shadow-lg">
+        <div class="bg-gradient-to-r from-green-800 to-green-600 text-white text-center py-3 px-4">
+          <p class="text-xs opacity-90">75th Karbi Anglong Day</p>
+          <h4 class="font-bold text-lg leading-tight">Open Badminton Championship 2026</h4>
+          <p class="text-xs mt-1">Registration Card</p>
+        </div>
+        <div class="p-5 flex gap-4">
+          <div class="flex-shrink-0">
+            <img id="cardPhoto" src="" alt="Player Photo" class="w-24 h-28 object-cover border rounded bg-gray-100">
+          </div>
+          <div class="flex-1 text-sm space-y-1">
+            <p><span class="text-gray-500">Reg. ID:</span> <strong id="cardId" class="font-mono"></strong></p>
+            <p><span class="text-gray-500">Name:</span> <strong id="cardName"></strong></p>
+            <p><span class="text-gray-500">Category:</span> <strong id="cardCategory"></strong></p>
+            <p id="cardPartnerRow" class="hidden"><span class="text-gray-500">Partner:</span> <strong id="cardPartner"></strong></p>
+            <p><span class="text-gray-500">DOB:</span> <span id="cardDob"></span></p>
+            <p><span class="text-gray-500">Mobile:</span> <span id="cardPhone"></span></p>
+          </div>
+        </div>
+        <div class="bg-gray-50 px-5 py-3 text-xs border-t text-center">
+          <p><strong>Venue:</strong> KASA Indoor Stadium, Diphu</p>
+          <p class="mt-1">13 – 15 November 2026 &nbsp;|&nbsp; Free Registration</p>
+          <p class="mt-2 text-gray-500">Sports & Youth Welfare Dept., KAAC<br>in collaboration with Karbi Anglong Sports Association</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-6 space-x-3">
+        <button onclick="window.print()" class="bg-green-700 hover:bg-green-800 text-white px-5 py-2 rounded-lg text-sm">
+          <i class="fas fa-print mr-1"></i> Print Card
+        </button>
+        <button onclick="location.reload()" class="text-green-700 underline text-sm">Register another player</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-gray-800 text-white text-center py-6 text-sm">
+  <p>Sports & Youth Welfare Department, Karbi Anglong Autonomous Council</p>
+  <p class="opacity-70 mt-1">In collaboration with Karbi Anglong Sports Association</p>
+</footer>
+
+<script>
+// ⚠️ REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzw21eDLS7JshBUCGSKYqf9hBp1cyIcbTx9U6NcaxwbDSfjiFbMH5U_lZj4L5CFc8KXpg/exec';
+
+function populateDobDropdowns() {
+  const days = document.querySelectorAll('select[name="dobDay"], select[name="partnerDobDay"]');
+  const months = document.querySelectorAll('select[name="dobMonth"], select[name="partnerDobMonth"]');
+  const years = document.querySelectorAll('select[name="dobYear"], select[name="partnerDobYear"]');
+  const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+  days.forEach(sel => {
+    for (let d = 1; d <= 31; d++) {
+      const opt = document.createElement('option');
+      opt.value = String(d).padStart(2, '0');
+      opt.textContent = d;
+      sel.appendChild(opt);
+    }
+  });
+  months.forEach(sel => {
+    monthNames.forEach((m, i) => {
+      const opt = document.createElement('option');
+      opt.value = String(i + 1).padStart(2, '0');
+      opt.textContent = m;
+      sel.appendChild(opt);
+    });
+  });
+  const currentYear = new Date().getFullYear();
+  years.forEach(sel => {
+    for (let y = currentYear; y >= 1950; y--) {
+      const opt = document.createElement('option');
+      opt.value = y;
+      opt.textContent = y;
+      sel.appendChild(opt);
+    }
+  });
+}
+populateDobDropdowns();
+
+function combineDob(prefix) {
+  const day = document.querySelector(`select[name="${prefix}Day"]`)?.value;
+  const month = document.querySelector(`select[name="${prefix}Month"]`)?.value;
+  const year = document.querySelector(`select[name="${prefix}Year"]`)?.value;
+  const hidden = document.querySelector(`input[name="${prefix}"]`);
+  if (day && month && year && hidden) {
+    hidden.value = `${year}-${month}-${day}`;
+  }
+}
+
+const form = document.getElementById('regForm');
+const category = document.getElementById('category');
+const partnerSection = document.getElementById('partnerSection');
+const submitBtn = document.getElementById('submitBtn');
+
+category.addEventListener('change', () => {
+  const doubles = ['Veteran Men', 'Veteran Mixed', 'Open Men', 'Open Women', 'Open Mixed'];
+  const isDoubles = doubles.includes(category.value);
+  if (isDoubles) {
+    partnerSection.classList.remove('hidden');
+    partnerSection.querySelectorAll('input, select').forEach(el => {
+      if (el.name && !el.name.includes('Dob')) el.required = true;
+    });
+  } else {
+    partnerSection.classList.add('hidden');
+    partnerSection.querySelectorAll('input, select').forEach(el => el.required = false);
+  }
+});
+
+const MAX_FILE_SIZE = 300 * 1024;
+document.querySelectorAll('input[type="file"]').forEach(input => {
+  input.addEventListener('change', function() {
+    if (this.files && this.files.length > 0) {
+      const file = this.files[0];
+      if (file.size > MAX_FILE_SIZE) {
+        alert(`File is too large (${(file.size / 1024).toFixed(1)} KB). Maximum allowed size is 300 KB.`);
+        this.value = '';
+      }
+    }
+  });
+});
+
+function generateId() {
+  return 'KAD-BAD-' + Math.random().toString(36).substr(2, 6).toUpperCase() + Date.now().toString().slice(-4);
+}
+
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    if (!file || !file.size) return resolve({ base64: '', type: '', name: '' });
+    const reader = new FileReader();
+    reader.onload = () => {
+      const base64 = reader.result.split(',')[1];
+      resolve({ base64, type: file.type, name: file.name });
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  // Size check
+  const fileInputs = form.querySelectorAll('input[type="file"]');
+  for (const input of fileInputs) {
+    if (input.files && input.files[0] && input.files[0].size > MAX_FILE_SIZE) {
+      alert('One or more files exceed 300 KB. Please upload smaller files.');
+      return;
+    }
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Submitting...';
+
+  combineDob('dob');
+  combineDob('partnerDob');
+
+  const fd = new FormData(form);
+  const photoFile = fd.get('photo');
+  const documentFile = fd.get('document');
+  const partnerPhotoFile = fd.get('partnerPhoto');
+  const partnerDocumentFile = fd.get('partnerDocument');
+
+  try {
+    const [photoData, docData, partnerPhotoData, partnerDocData] = await Promise.all([
+      fileToBase64(photoFile),
+      fileToBase64(documentFile),
+      fileToBase64(partnerPhotoFile),
+      fileToBase64(partnerDocumentFile)
+    ]);
+
+    const payload = {
+      id: generateId(),
+      name: fd.get('name'),
+      phone: fd.get('phone'),
+      dob: fd.get('dob'),
+      gender: fd.get('gender'),
+      category: fd.get('category'),
+      address: fd.get('address'),
+      partnerName: fd.get('partnerName') || '',
+      partnerPhone: fd.get('partnerPhone') || '',
+      partnerDob: fd.get('partnerDob') || '',
+      partnerGender: fd.get('partnerGender') || '',
+      photoBase64: photoData.base64,
+      photoType: photoData.type,
+      photoName: photoData.name,
+      documentBase64: docData.base64,
+      documentType: docData.type,
+      documentName: docData.name,
+      partnerPhotoBase64: partnerPhotoData.base64,
+      partnerPhotoType: partnerPhotoData.type,
+      partnerPhotoName: partnerPhotoData.name,
+      partnerDocumentBase64: partnerDocData.base64,
+      partnerDocumentType: partnerDocData.type,
+      partnerDocumentName: partnerDocData.name
+    };
+
+    const response = await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors', // Apps Script web apps often need this or proper CORS headers
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    // With no-cors we can't read the response, but the request is sent.
+    // For better feedback you can switch to cors after testing, or use a simple redirect approach.
+    // Here we assume success if no network error.
+
+    // Show card
+    document.getElementById('cardId').textContent = payload.id;
+    document.getElementById('cardName').textContent = payload.name;
+    document.getElementById('cardCategory').textContent = payload.category;
+    document.getElementById('cardDob').textContent = payload.dob;
+    document.getElementById('cardPhone').textContent = payload.phone;
+
+    if (payload.partnerName) {
+      document.getElementById('cardPartner').textContent = payload.partnerName;
+      document.getElementById('cardPartnerRow').classList.remove('hidden');
+    }
+
+    if (photoFile && photoFile.size) {
+      const reader = new FileReader();
+      reader.onload = (ev) => { document.getElementById('cardPhoto').src = ev.target.result; };
+      reader.readAsDataURL(photoFile);
+    }
+
+    form.classList.add('hidden');
+    document.getElementById('successMsg').classList.remove('hidden');
+  } catch (err) {
+    alert('Submission failed. Please check your internet connection and try again.\\n' + err.message);
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Submit Registration';
+  }
+});
+</script>
+</body>
+</html>
