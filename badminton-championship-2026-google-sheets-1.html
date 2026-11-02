@@ -1,3 +1,6 @@
+Here is the full code. Select all of it, copy, and paste into the GitHub editor (after deleting the old content):
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +11,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
-  .category-card:hover { transform: translateY(-4px); transition: all 0.2s ease; }
+  .category-card:hover { transform: translateY(-2px); transition: all 0.2s ease; }
   @media print {
     body * { visibility: hidden; }
     #regCard, #regCard * { visibility: visible; }
@@ -20,69 +23,98 @@
 <body class="bg-gray-50 text-gray-800">
 
 <header class="bg-gradient-to-r from-green-800 to-green-600 text-white shadow-lg">
-  <div class="max-w-6xl mx-auto px-4 py-6">
-    <div class="flex items-center gap-4">
-      <div class="bg-white/20 p-3 rounded-full">
-        <i class="fas fa-shuttlecock text-3xl"></i>
+  <div class="max-w-6xl mx-auto px-4 py-5">
+    <div class="flex items-center gap-3">
+      <div class="bg-white/20 p-2.5 rounded-full">
+        <i class="fas fa-shuttlecock text-2xl"></i>
       </div>
       <div>
-        <h1 class="text-2xl md:text-3xl font-bold">75th Karbi Anglong Day</h1>
-        <p class="text-lg md:text-xl opacity-90">Open Badminton Championship 2026</p>
+        <h1 class="text-xl md:text-2xl font-bold leading-tight">75th Karbi Anglong Day</h1>
+        <p class="text-base md:text-lg opacity-90">Open Badminton Championship 2026</p>
       </div>
     </div>
-    <p class="mt-3 text-sm md:text-base opacity-90">Organised by Sports & Youth Welfare Department, KAAC<br>in collaboration with Karbi Anglong Sports Association</p>
+    <p class="mt-2 text-xs md:text-sm opacity-90">Organised by Sports & Youth Welfare Department, KAAC<br>in collaboration with Karbi Anglong Sports Association</p>
   </div>
 </header>
 
+<!-- Compact Info Bar -->
 <section class="bg-white border-b">
-  <div class="max-w-6xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-6 text-center">
-    <div class="p-4 rounded-lg bg-green-50">
-      <i class="fas fa-calendar-alt text-green-700 text-2xl mb-2"></i>
-      <p class="font-semibold">Event Dates</p>
-      <p class="text-sm">13, 14 & 15 November 2026</p>
-    </div>
-    <div class="p-4 rounded-lg bg-blue-50">
-      <i class="fas fa-map-marker-alt text-blue-700 text-2xl mb-2"></i>
-      <p class="font-semibold">Venue</p>
-      <p class="text-sm">KASA Indoor Stadium, Diphu</p>
-    </div>
-    <div class="p-4 rounded-lg bg-yellow-50">
-      <i class="fas fa-ticket-alt text-yellow-700 text-2xl mb-2"></i>
-      <p class="font-semibold">Registration</p>
-      <p class="text-sm font-bold text-green-700">FREE</p>
+  <div class="max-w-6xl mx-auto px-4 py-3">
+    <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <div class="flex items-center gap-2">
+        <i class="fas fa-calendar-alt text-green-700"></i>
+        <span><strong>Dates:</strong> 13–15 Nov 2026</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <i class="fas fa-map-marker-alt text-blue-700"></i>
+        <span><strong>Venue:</strong> KASA Indoor Stadium, Diphu</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <i class="fas fa-ticket-alt text-yellow-600"></i>
+        <span><strong>Registration:</strong> <span class="text-green-700 font-semibold">FREE</span></span>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="max-w-6xl mx-auto px-4 py-10">
-  <h2 class="text-2xl font-bold mb-6 text-center">Categories</h2>
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-    <div class="category-card bg-white p-5 rounded-xl shadow border border-gray-100">
-      <h3 class="font-bold text-green-800">Under 9, 11, 13 & 15</h3>
-      <p class="text-sm mt-1">Boys & Girls • <strong>Singles only</strong></p>
+<!-- Compact Categories -->
+<section class="max-w-6xl mx-auto px-4 py-6">
+  <h2 class="text-lg font-bold mb-3">Categories</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm">
+    <div class="bg-white px-3 py-2 rounded-lg border shadow-sm">
+      <p class="font-semibold text-green-800">U9, 11, 13 & 15</p>
+      <p class="text-xs text-gray-600">Boys & Girls • Singles</p>
     </div>
-    <div class="category-card bg-white p-5 rounded-xl shadow border border-gray-100">
-      <h3 class="font-bold text-green-800">Veteran Men’s</h3>
-      <p class="text-sm mt-1">Doubles</p>
+    <div class="bg-white px-3 py-2 rounded-lg border shadow-sm">
+      <p class="font-semibold text-green-800">Veteran Men’s</p>
+      <p class="text-xs text-gray-600">Doubles</p>
     </div>
-    <div class="category-card bg-white p-5 rounded-xl shadow border border-gray-100">
-      <h3 class="font-bold text-green-800">Veteran Mixed</h3>
-      <p class="text-sm mt-1">Doubles</p>
+    <div class="bg-white px-3 py-2 rounded-lg border shadow-sm">
+      <p class="font-semibold text-green-800">Veteran Mixed</p>
+      <p class="text-xs text-gray-600">Doubles</p>
     </div>
-    <div class="category-card bg-white p-5 rounded-xl shadow border border-gray-100">
-      <h3 class="font-bold text-green-800">Open Men’s</h3>
-      <p class="text-sm mt-1">Doubles only</p>
+    <div class="bg-white px-3 py-2 rounded-lg border shadow-sm">
+      <p class="font-semibold text-green-800">Open Men’s</p>
+      <p class="text-xs text-gray-600">Doubles</p>
     </div>
-    <div class="category-card bg-white p-5 rounded-xl shadow border border-gray-100">
-      <h3 class="font-bold text-green-800">Open Women’s</h3>
-      <p class="text-sm mt-1">Doubles only</p>
+    <div class="bg-white px-3 py-2 rounded-lg border shadow-sm">
+      <p class="font-semibold text-green-800">Open Women’s</p>
+      <p class="text-xs text-gray-600">Doubles</p>
     </div>
-    <div class="category-card bg-white p-5 rounded-xl shadow border border-gray-100">
-      <h3 class="font-bold text-green-800">Open Mixed</h3>
-      <p class="text-sm mt-1">Doubles</p>
+    <div class="bg-white px-3 py-2 rounded-lg border shadow-sm">
+      <p class="font-semibold text-green-800">Open Mixed</p>
+      <p class="text-xs text-gray-600">Doubles</p>
     </div>
   </div>
-  <p class="text-center text-sm text-gray-500 mt-4">Age categories calculated as on 1 January 2026</p>
+  <p class="text-xs text-gray-500 mt-2">Age as on 1 January 2026</p>
+</section>
+
+<!-- Rules & Regulations -->
+<section class="max-w-3xl mx-auto px-4 pb-6">
+  <div class="bg-white rounded-xl shadow p-5 md:p-6">
+    <h2 class="text-lg font-bold mb-3 text-green-800">Rules & Regulations</h2>
+    <p class="text-xs text-gray-500 mb-3">On the occasion of the 75th Karbi Anglong Day</p>
+    <ol class="list-decimal list-inside space-y-1.5 text-sm text-gray-700">
+      <li>Registration is free for all participants.</li>
+      <li>The last date for submission of the registration form is <strong>10th November 2026 until 5:00 PM</strong>.</li>
+      <li>Final fixtures will be released on <strong>11th November after 5:00 PM</strong>.</li>
+      <li>The tournament is open to all badminton players.</li>
+      <li>The tournament will be conducted on a knock-out basis.</li>
+      <li>Up to the Quarter Finals: Best of three sets (15 points per set).<br>Semi Finals and Finals: Best of three sets (21 points per set).</li>
+      <li>BWF & BAI rules will be followed.</li>
+      <li>A player can participate in a maximum of two events only.</li>
+      <li>Players participating in age-group events must produce a birth certificate or Aadhaar card.</li>
+      <li>The combined age of veteran players should not be less than 85 years, and both players should be 35 years or above.</li>
+      <li><strong>Cash prizes:</strong>
+        <ul class="list-disc list-inside ml-4 mt-1">
+          <li>Age Categories: Winner – ₹3,000/- | Runner-up – ₹1,500/-</li>
+          <li>Open and Veteran Categories: Winner – ₹8,000/- | Runner-up – ₹4,000/-</li>
+        </ul>
+      </li>
+      <li>The decision of the organizing committee and match officials will be final and binding.</li>
+      <li>The participants shall not receive any travelling allowance, food, or lodging from the organisers.</li>
+    </ol>
+  </div>
 </section>
 
 <section id="register" class="max-w-3xl mx-auto px-4 pb-16">
@@ -499,3 +531,6 @@ form.addEventListener('submit', async (e) => {
 </script>
 </body>
 </html>
+```
+
+Copy all of the above, paste it into the GitHub file editor (after clearing the old content), and commit.
